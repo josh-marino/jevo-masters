@@ -232,6 +232,23 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
 
 /* graphic avatars keep their colour - the newsprint filter kills a cartoon */
 img.raw{filter:none !important}
+
+/* named people inside a finding */
+.ffaces{display:flex;gap:.7rem;margin:.95rem 0 0;flex-wrap:wrap}
+.ffaces figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.ffaces img{width:52px;height:52px;object-fit:cover;border:2px solid var(--ink);
+  filter:grayscale(1) contrast(1.08)}
+.ffaces img.raw{filter:none}
+.ffaces figcaption{font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint)}
+/* the feud cycle */
+.cyclewrap{margin:1rem 0 0;color:var(--ink)}
+.cycle image{filter:grayscale(1) contrast(1.08)}
+.cycle{display:block;width:100%;max-width:264px;margin:0 auto;height:auto}
+.cycle .cyname{font-family:"Libre Franklin",Arial,sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;fill:var(--ink)}
+.cycnote{text-align:center;font-size:.62rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--faint);margin:.5rem 0 0}
 </style>
 <div class="page">
   <header class="ihero">
@@ -250,6 +267,7 @@ img.raw{filter:none !important}
     5 bronzes to 4 rings.</p>
     <p>Chirch won it all in 2016 at 6&ndash;7. Noodles won it all in 2020 at 6&ndash;7. And the bottom half of the all-time table holds <b>7 of the league&rsquo;s
     13 championships</b>. The top half, where all the good teams live, holds 6.</p>
+    <div class="ffaces"><figure><img class="" src="img/chirch.jpg?v=4a4720a7" alt="Chirch"><figcaption>Chirch</figcaption></figure><figure><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt="Noodles"><figcaption>Noodles</figcaption></figure></div>
   </article>
   <article class="story"><span class="slug">Finding 02</span>
     <h3>Half your record isn&rsquo;t yours</h3>
@@ -262,12 +280,14 @@ img.raw{filter:none !important}
     <h3>Every feud is one&#8209;directional</h3>
     <p>Twelve managers, twelve worst enemies, and <b>not a single pair points at each other</b> &mdash;
     every rivalry in this league is unrequited. At the top it closes into a perfect loop: Avo&rsquo;s worst enemy is Rhino. Rhino&rsquo;s is Scorzo. Scorzo&rsquo;s is Avo. Rock, paper, scissors, for thirteen years.</p>
+    <div class="cyclewrap"><svg viewBox="0 0 264 264" class="cycle" role="img" aria-label="Avo beats Rhino beats Scorzo beats Avo"><defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker><clipPath id="c0"><circle cx="132.0" cy="42.0" r="31.0"/></clipPath><clipPath id="c1"><circle cx="209.9" cy="177.0" r="31.0"/></clipPath><clipPath id="c2"><circle cx="54.1" cy="177.0" r="31.0"/></clipPath></defs><path d="M 167.0 49.1 A 90.0 90.0 0 0 1 221.3 143.1" fill="none" stroke="currentColor" stroke-width="3" marker-end="url(#ah)"/><path d="M 186.3 203.8 A 90.0 90.0 0 0 1 77.7 203.8" fill="none" stroke="currentColor" stroke-width="3" marker-end="url(#ah)"/><path d="M 42.7 143.1 A 90.0 90.0 0 0 1 97.0 49.1" fill="none" stroke="currentColor" stroke-width="3" marker-end="url(#ah)"/><image href="img/avo.jpg?v=0cae7ec2" x="101.0" y="11.0" width="62.0" height="62.0" clip-path="url(#c0)" preserveAspectRatio="xMidYMid slice"/><circle cx="132.0" cy="42.0" r="31.0" fill="none" stroke="currentColor" stroke-width="3"/><text x="132.0" y="89.0" text-anchor="middle" class="cyname">Avo</text><image href="img/rhino.jpg?v=96e44d1d" x="178.9" y="146.0" width="62.0" height="62.0" clip-path="url(#c1)" preserveAspectRatio="xMidYMid slice"/><circle cx="209.9" cy="177.0" r="31.0" fill="none" stroke="currentColor" stroke-width="3"/><text x="209.9" y="224.0" text-anchor="middle" class="cyname">Rhino</text><image href="img/scorzo.jpg?v=383df316" x="23.1" y="146.0" width="62.0" height="62.0" clip-path="url(#c2)" preserveAspectRatio="xMidYMid slice"/><circle cx="54.1" cy="177.0" r="31.0" fill="none" stroke="currentColor" stroke-width="3"/><text x="54.1" y="224.0" text-anchor="middle" class="cyname">Scorzo</text></svg><p class="cycnote">Each arrow points at the man who ruins him.</p></div>
   </article>
   <article class="story"><span class="slug">Finding 04</span>
     <h3>The margins are microscopic</h3>
     <p><b>33 of 1,226 games</b> have been decided by less than a single point &mdash; two or
     three coin-flips a season. The closest: 2023, week 7. Wood 117.26, Avo 117.20.
     A margin of 0.06, and it counts forever.</p>
+      <div class="ffaces"><figure><img class="" src="img/wood.jpg?v=671f6dc3" alt="Wood"><figcaption>Wood</figcaption></figure><figure><img class="" src="img/avo.jpg?v=0cae7ec2" alt="Avo"><figcaption>Avo</figcaption></figure></div>
   </article>
   <article class="story wide"><span class="slug">Finding 05</span>
     <h3>Scoring has gone exactly nowhere</h3>
