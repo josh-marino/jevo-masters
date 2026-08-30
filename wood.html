@@ -163,20 +163,26 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
 .ihero h1 i{font-style:normal;color:var(--red)}
 .ihero .verdict{max-width:52ch}
 
-.stories{display:grid;gap:1rem;grid-template-columns:repeat(6,1fr)}
+.stories{display:flex;gap:1rem;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;scroll-padding-left:0;padding:0 0 .95rem;
+  -webkit-overflow-scrolling:touch}
+.stories::-webkit-scrollbar{height:9px}
+.stories::-webkit-scrollbar-track{background:var(--hair)}
+.stories::-webkit-scrollbar-thumb{background:var(--ink)}
 .story{background:var(--surf);border:3px solid var(--ink);padding:1.15rem 1.25rem 1.25rem;
-  grid-column:span 2}
-.story.wide{grid-column:1/-1}
+  flex:0 0 min(84vw,392px);scroll-snap-align:start;display:flex;flex-direction:column}
+.story.wide{flex-basis:min(90vw,470px)}
 .story.wide.lead{box-shadow:7px 7px 0 var(--ink)}
-.story .slug{background:var(--red);color:var(--surf)}
+.story .slug{background:var(--red);color:var(--surf);align-self:flex-start}
 .story h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
   font-size:clamp(1.5rem,4.5vw,2rem);line-height:.95;margin:0 0 .55rem;
   text-transform:uppercase}
-.story.lead h3{font-size:clamp(2.1rem,7vw,3.2rem)}
-.story p{margin:0;color:var(--soft);font-size:.9rem;max-width:66ch}
+.story.lead h3{font-size:clamp(1.8rem,5.5vw,2.5rem)}
+.story p{margin:0;color:var(--soft);font-size:.9rem}
 .story p+p{margin-top:.55rem}
 .story b{color:var(--ink)}
-@media (max-width:719px){.story{grid-column:1/-1}}
+.swipe{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--faint);margin:.1rem 0 0}
 
 .bars{display:flex;align-items:flex-end;gap:3px;height:104px;margin:1.1rem 0 0;
   border-bottom:2px solid var(--ink);padding-bottom:0}
@@ -186,15 +192,22 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
   letter-spacing:.08em;color:var(--faint);margin-top:.35rem;text-transform:uppercase}
 .barnote{font-size:.7rem;color:var(--faint);margin:.6rem 0 0}
 
-.recs ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
-.recs li{display:flex;justify-content:space-between;gap:1.2rem;align-items:baseline;
-  padding:.7rem 0;border-bottom:1px solid var(--hair)}
-.recs li span{color:var(--soft);font-size:.86rem}
-.recs li b{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
-  font-size:1.25rem;letter-spacing:.02em;text-align:right;white-space:nowrap}
-.recs li em{display:block;font-style:normal;font-weight:600;font-size:.64rem;white-space:normal;
-  font-family:"Libre Franklin","Franklin Gothic Medium",Arial,sans-serif;
-  letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-top:.25rem}
+.recs .reclist{display:flex;gap:1rem;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;padding:0 0 .95rem;-webkit-overflow-scrolling:touch}
+.recs .reclist::-webkit-scrollbar{height:9px}
+.recs .reclist::-webkit-scrollbar-track{background:var(--hair)}
+.recs .reclist::-webkit-scrollbar-thumb{background:var(--ink)}
+.rec{flex:0 0 min(70vw,268px);scroll-snap-align:start;background:var(--surf);
+  border:3px solid var(--ink);padding:1rem 1.05rem 1.05rem;display:flex;flex-direction:column;gap:.55rem}
+.rec .slug{background:var(--ink);color:var(--surf);align-self:flex-start;margin:0}
+.rec b{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
+  font-size:clamp(1.9rem,6vw,2.5rem);line-height:1;font-variant-numeric:tabular-nums}
+.rec .faces{display:flex;gap:.4rem}
+.rec .faces img{width:46px;height:46px;object-fit:cover;border:2px solid var(--ink);
+  filter:grayscale(1) contrast(1.08)}
+.rec .faces img.raw{filter:none}
+.rec em{font-style:normal;font-size:.7rem;font-weight:600;letter-spacing:.03em;
+  text-transform:uppercase;color:var(--faint);line-height:1.5;margin-top:auto}
 
 .mgrid{display:flex;flex-direction:column;border:3px solid var(--ink);background:var(--surf)}
 .mcard{display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;text-decoration:none;
