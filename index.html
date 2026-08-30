@@ -1,4 +1,5 @@
 <title>Jevo Masters</title>
+<meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,17 +198,18 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
 .recs .reclist::-webkit-scrollbar{height:9px}
 .recs .reclist::-webkit-scrollbar-track{background:var(--hair)}
 .recs .reclist::-webkit-scrollbar-thumb{background:var(--ink)}
-.rec{flex:0 0 min(70vw,268px);scroll-snap-align:start;background:var(--surf);
-  border:3px solid var(--ink);padding:1rem 1.05rem 1.05rem;display:flex;flex-direction:column;gap:.55rem}
+.rec{flex:0 0 min(74vw,292px);scroll-snap-align:start;background:var(--surf);
+  border:3px solid var(--ink);padding:1rem 1.05rem 1.15rem;display:flex;flex-direction:column;gap:.6rem}
 .rec .slug{background:var(--ink);color:var(--surf);align-self:flex-start;margin:0}
 .rec b{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
-  font-size:clamp(1.9rem,6vw,2.5rem);line-height:1;font-variant-numeric:tabular-nums}
-.rec .faces{display:flex;gap:.4rem}
-.rec .faces img{width:46px;height:46px;object-fit:cover;border:2px solid var(--ink);
+  font-size:clamp(2.6rem,9vw,3.4rem);line-height:.92;font-variant-numeric:tabular-nums;
+  letter-spacing:.005em;margin:.1rem 0 0}
+.rec .faces{display:flex;gap:.5rem}
+.rec .faces img{width:80px;height:80px;object-fit:cover;border:3px solid var(--ink);
   filter:grayscale(1) contrast(1.08)}
 .rec .faces img.raw{filter:none}
-.rec em{font-style:normal;font-size:.7rem;font-weight:600;letter-spacing:.03em;
-  text-transform:uppercase;color:var(--faint);line-height:1.5;margin-top:auto}
+.rec em{font-style:normal;font-size:.66rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--faint);line-height:1.55;margin-top:auto}
 
 .mgrid{display:flex;flex-direction:column;border:3px solid var(--ink);background:var(--surf)}
 .mcard{display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;text-decoration:none;
@@ -249,6 +251,21 @@ img.raw{filter:none !important}
   letter-spacing:.06em;text-transform:uppercase;fill:var(--ink)}
 .cycnote{text-align:center;font-size:.62rem;font-weight:700;letter-spacing:.12em;
   text-transform:uppercase;color:var(--faint);margin:.5rem 0 0}
+
+/* roster sort tabs */
+.tabs{display:flex;gap:0;margin:0 0 .55rem;border:3px solid var(--ink);width:fit-content;max-width:100%}
+.tab{font:inherit;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  background:var(--surf);color:var(--soft);border:0;border-right:3px solid var(--ink);
+  padding:.6em 1.05em;cursor:pointer}
+.tab:last-child{border-right:0}
+.tab.on{background:var(--ink);color:var(--surf)}
+.tab:hover:not(.on){color:var(--ink)}
+.tabnote{font-size:.66rem;font-weight:600;letter-spacing:.04em;color:var(--faint);
+  margin:0 0 .85rem;line-height:1.5}
+.mcard .metric{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
+  font-size:1.15rem;color:var(--gold);flex:none;min-width:3.4em;text-align:right;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.mcard .rings{display:none}
 </style>
 <div class="page">
   <header class="ihero">
@@ -303,30 +320,57 @@ img.raw{filter:none !important}
 
   <section class="recs">
     <h2>The Book of Records</h2>
-    <div class="reclist"><article class="rec"><span class="slug">Highest week ever</span><b>226.06</b><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"></div><em>Salim &middot; 2019 wk 5</em></article>
-<article class="rec"><span class="slug">Lowest week ever</span><b>12.00</b><div class="faces"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><em>Smeds &middot; 2013 wk 9</em></article>
-<article class="rec"><span class="slug">Biggest beatdown</span><b>by 125.82</b><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh" title="Josh"></div><em>Salim 226.06 over Josh 100.24 &middot; 2019 wk 5</em></article>
-<article class="rec"><span class="slug">Closest game</span><b>by 0.06</b><div class="faces"><img class="" src="img/wood.jpg?v=671f6dc3" alt="Wood" title="Wood"><img class="" src="img/avo.jpg?v=0cae7ec2" alt="Avo" title="Avo"></div><em>Wood 117.26 over Avo 117.20 &middot; 2023 wk 7</em></article>
-<article class="rec"><span class="slug">Lowest winning score</span><b>67.56</b><div class="faces"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt="Noodles" title="Noodles"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><em>Noodles over Smeds (57.22) &middot; 2021 wk 15</em></article>
-<article class="rec"><span class="slug">Highest-scoring game</span><b>347.82</b><div class="faces"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh" title="Josh"><img class="" src="img/rawson.jpg?v=d7de8852" alt="Rawson" title="Rawson"></div><em>Josh 206.80 over Rawson 141.02 &middot; 2020 wk 2</em></article>
-<article class="rec"><span class="slug">Best season ever</span><b>12&ndash;1, 149.3/wk</b><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"></div><em>Salim &middot; 2019 &middot; outscored 84.6% of the league weekly</em></article></div>
+    <div class="reclist"><article class="rec"><span class="slug">Highest week ever</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"></div><b>226.06</b><em>Salim &middot; 2019 wk 5</em></article>
+<article class="rec"><span class="slug">Lowest week ever</span><div class="faces"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><b>12.00</b><em>Smeds &middot; 2013 wk 9</em></article>
+<article class="rec"><span class="slug">Biggest beatdown</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh" title="Josh"></div><b>by 125.82</b><em>Salim 226.06 over Josh 100.24 &middot; 2019 wk 5</em></article>
+<article class="rec"><span class="slug">Closest game</span><div class="faces"><img class="" src="img/wood.jpg?v=671f6dc3" alt="Wood" title="Wood"><img class="" src="img/avo.jpg?v=0cae7ec2" alt="Avo" title="Avo"></div><b>by 0.06</b><em>Wood 117.26 over Avo 117.20 &middot; 2023 wk 7</em></article>
+<article class="rec"><span class="slug">Lowest winning score</span><div class="faces"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt="Noodles" title="Noodles"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><b>67.56</b><em>Noodles over Smeds (57.22) &middot; 2021 wk 15</em></article>
+<article class="rec"><span class="slug">Highest-scoring game</span><div class="faces"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh" title="Josh"><img class="" src="img/rawson.jpg?v=d7de8852" alt="Rawson" title="Rawson"></div><b>347.82</b><em>Josh 206.80 over Rawson 141.02 &middot; 2020 wk 2</em></article>
+<article class="rec"><span class="slug">Best season ever</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"></div><b>12&ndash;1, 149.3/wk</b><em>Salim &middot; 2019 &middot; outscored 84.6% of the league weekly</em></article></div>
     <p class="swipe">&larr; Swipe &mdash; seven records &rarr;</p>
   </section>
 
   <section>
-    <h2>The Field <small>trophy order</small></h2>
-    <div class="mgrid"><a class="mcard" href="chirch.html"><img class="" src="img/chirch.jpg?v=4a4720a7" alt=""><div><h3>Chirch</h3><p class="sm">Patrick &middot; 89&ndash;85</p><p class="tag">4 Rings</p></div><span class="rings">&#9679;&#9679;&#9679;&#9679;</span></a>
-<a class="mcard" href="salim.html"><img class="" src="img/salim.jpg?v=a7567387" alt=""><div><h3>Salim</h3><p class="sm">Sal &middot; 94&ndash;80</p><p class="tag">3 Rings</p></div><span class="rings">&#9679;&#9679;&#9679;</span></a>
-<a class="mcard" href="josh.html"><img class="" src="img/josh.jpg?v=4758b829" alt=""><div><h3>Josh</h3><p class="sm">Josh &middot; 96&ndash;78</p><p class="tag">Champion, 2023</p></div><span class="rings">&#9679;</span></a>
-<a class="mcard" href="rhino.html"><img class="" src="img/rhino.jpg?v=96e44d1d" alt=""><div><h3>Rhino</h3><p class="sm">Anthony &middot; 82&ndash;92</p><p class="tag">The Unluckiest Man in the League</p></div><span class="rings">&#9679;</span></a>
-<a class="mcard" href="avo.html"><img class="" src="img/avo.jpg?v=0cae7ec2" alt=""><div><h3>Avo</h3><p class="sm">Anthony &middot; 92&ndash;82</p><p class="tag">Champion, 2022</p></div><span class="rings">&#9679;</span></a>
-<a class="mcard" href="kermick.html"><img class="" src="img/kermick.jpg?v=d5f88450" alt=""><div><h3>Kermick</h3><p class="sm">Kerm &middot; 77&ndash;97</p><p class="tag">Champion, 2015</p></div><span class="rings">&#9679;</span></a>
-<a class="mcard" href="noodles.html"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt=""><div><h3>Noodles</h3><p class="sm">Mike &middot; 76&ndash;98</p><p class="tag">Champion, 2020</p></div><span class="rings">&#9679;</span></a>
-<a class="mcard" href="rawson.html"><img class="" src="img/rawson.jpg?v=d7de8852" alt=""><div><h3>Rawson</h3><p class="sm">Kyle &middot; 79&ndash;95</p><p class="tag">Champion, 2021</p></div><span class="rings">&#9679;</span></a>
-<a class="mcard" href="scorzo.html"><img class="" src="img/scorzo.jpg?v=383df316" alt=""><div><h3>Scorzo</h3><p class="sm">Matt S &middot; 105&ndash;69</p><p class="tag">Best Team, No Trophy</p></div><span class="rings"></span></a>
-<a class="mcard" href="smeds.html"><img class="" src="img/smeds.jpg?v=c8898339" alt=""><div><h3>Smeds</h3><p class="sm">Kevin &middot; 91&ndash;83</p><p class="tag">Still Waiting</p></div><span class="rings"></span></a>
-<a class="mcard" href="della.html"><img class="" src="img/della.jpg?v=bbb18b68" alt=""><div><h3>Della</h3><p class="sm">Matt &middot; 76&ndash;98</p><p class="tag">Draft Disaster</p></div><span class="rings"></span></a>
-<a class="mcard" href="wood.html"><img class="" src="img/wood.jpg?v=671f6dc3" alt=""><div><h3>Wood</h3><p class="sm">Eric &middot; 87&ndash;87</p><p class="tag">Dead Even</p></div><span class="rings"></span></a></div>
+    <h2>The Field <small>sort the table</small></h2>
+    <div class="tabs" role="group" aria-label="Sort managers">
+      <button type="button" class="tab on" data-k="tro" aria-pressed="true">Trophy</button>
+      <button type="button" class="tab" data-k="pos" aria-pressed="false">Positional</button>
+      <button type="button" class="tab" data-k="pts" aria-pressed="false">Points</button>
+    </div>
+    <p class="tabnote" id="tabnote">Championships first, then all-play.</p>
+    <div class="mgrid"><a class="mcard" href="chirch.html" data-tro="0" data-pos="1" data-pts="6" data-vtro="&#9679;&#9679;&#9679;&#9679;" data-vpos="105" data-vpts="19,861" style="order:0"><img class="" src="img/chirch.jpg?v=4a4720a7" alt=""><div><h3>Chirch</h3><p class="sm">Patrick &middot; 89&ndash;85</p><p class="tag">4 Rings</p></div><span class="metric">&#9679;&#9679;&#9679;&#9679;</span></a>
+<a class="mcard" href="salim.html" data-tro="1" data-pos="3" data-pts="3" data-vtro="&#9679;&#9679;&#9679;" data-vpos="99" data-vpts="20,297" style="order:1"><img class="" src="img/salim.jpg?v=a7567387" alt=""><div><h3>Salim</h3><p class="sm">Sal &middot; 94&ndash;80</p><p class="tag">3 Rings</p></div><span class="metric">&#9679;&#9679;&#9679;</span></a>
+<a class="mcard" href="josh.html" data-tro="2" data-pos="0" data-pts="1" data-vtro="&#9679;" data-vpos="109" data-vpts="20,576" style="order:2"><img class="" src="img/josh.jpg?v=4758b829" alt=""><div><h3>Josh</h3><p class="sm">Josh &middot; 96&ndash;78</p><p class="tag">Champion, 2023</p></div><span class="metric">&#9679;</span></a>
+<a class="mcard" href="rhino.html" data-tro="3" data-pos="6" data-pts="2" data-vtro="&#9679;" data-vpos="77" data-vpts="20,330" style="order:3"><img class="" src="img/rhino.jpg?v=96e44d1d" alt=""><div><h3>Rhino</h3><p class="sm">Anthony &middot; 82&ndash;92</p><p class="tag">The Unluckiest Man in the League</p></div><span class="metric">&#9679;</span></a>
+<a class="mcard" href="avo.html" data-tro="4" data-pos="7" data-pts="5" data-vtro="&#9679;" data-vpos="75" data-vpts="20,017" style="order:4"><img class="" src="img/avo.jpg?v=0cae7ec2" alt=""><div><h3>Avo</h3><p class="sm">Anthony &middot; 92&ndash;82</p><p class="tag">Champion, 2022</p></div><span class="metric">&#9679;</span></a>
+<a class="mcard" href="kermick.html" data-tro="5" data-pos="9" data-pts="7" data-vtro="&#9679;" data-vpos="71" data-vpts="19,848" style="order:5"><img class="" src="img/kermick.jpg?v=d5f88450" alt=""><div><h3>Kermick</h3><p class="sm">Kerm &middot; 77&ndash;97</p><p class="tag">Champion, 2015</p></div><span class="metric">&#9679;</span></a>
+<a class="mcard" href="noodles.html" data-tro="6" data-pos="4" data-pts="11" data-vtro="&#9679;" data-vpos="83" data-vpts="19,453" style="order:6"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt=""><div><h3>Noodles</h3><p class="sm">Mike &middot; 76&ndash;98</p><p class="tag">Champion, 2020</p></div><span class="metric">&#9679;</span></a>
+<a class="mcard" href="rawson.html" data-tro="7" data-pos="11" data-pts="10" data-vtro="&#9679;" data-vpos="68" data-vpts="19,491" style="order:7"><img class="" src="img/rawson.jpg?v=d7de8852" alt=""><div><h3>Rawson</h3><p class="sm">Kyle &middot; 79&ndash;95</p><p class="tag">Champion, 2021</p></div><span class="metric">&#9679;</span></a>
+<a class="mcard" href="scorzo.html" data-tro="8" data-pos="2" data-pts="0" data-vtro="&mdash;" data-vpos="104" data-vpts="20,974" style="order:8"><img class="" src="img/scorzo.jpg?v=383df316" alt=""><div><h3>Scorzo</h3><p class="sm">Matt S &middot; 105&ndash;69</p><p class="tag">Best Team, No Trophy</p></div><span class="metric">&mdash;</span></a>
+<a class="mcard" href="smeds.html" data-tro="9" data-pos="8" data-pts="4" data-vtro="&mdash;" data-vpos="72" data-vpts="20,050" style="order:9"><img class="" src="img/smeds.jpg?v=c8898339" alt=""><div><h3>Smeds</h3><p class="sm">Kevin &middot; 91&ndash;83</p><p class="tag">Still Waiting</p></div><span class="metric">&mdash;</span></a>
+<a class="mcard" href="della.html" data-tro="10" data-pos="10" data-pts="8" data-vtro="&mdash;" data-vpos="70" data-vpts="19,827" style="order:10"><img class="" src="img/della.jpg?v=bbb18b68" alt=""><div><h3>Della</h3><p class="sm">Matt &middot; 76&ndash;98</p><p class="tag">Draft Disaster</p></div><span class="metric">&mdash;</span></a>
+<a class="mcard" href="wood.html" data-tro="11" data-pos="5" data-pts="9" data-vtro="&mdash;" data-vpos="81" data-vpts="19,687" style="order:11"><img class="" src="img/wood.jpg?v=671f6dc3" alt=""><div><h3>Wood</h3><p class="sm">Eric &middot; 87&ndash;87</p><p class="tag">Dead Even</p></div><span class="metric">&mdash;</span></a></div>
+    <script>
+    (function(){
+      var notes={tro:"Championships first, then all-play.",
+                 pos:"Borda count — 12 points for a title down to 1 for last, every season added up.",
+                 pts:"Total points scored across thirteen seasons."};
+      var cards=[].slice.call(document.querySelectorAll(".mcard"));
+      var tabs=[].slice.call(document.querySelectorAll(".tab"));
+      function apply(k){
+        cards.forEach(function(c){
+          c.style.order=c.getAttribute("data-"+k);
+          c.querySelector(".metric").innerHTML=c.getAttribute("data-v"+k);
+        });
+        tabs.forEach(function(t){
+          var on=t.getAttribute("data-k")===k;
+          t.classList.toggle("on",on);t.setAttribute("aria-pressed",on?"true":"false");
+        });
+        document.getElementById("tabnote").textContent=notes[k];
+      }
+      tabs.forEach(function(t){t.addEventListener("click",function(){apply(t.getAttribute("data-k"));});});
+    })();
+    </script>
   </section>
 
   <footer>156 team-seasons &middot; 2,452 weekly scores &middot; 2,508 draft picks &middot; sourced from Yahoo.<br>

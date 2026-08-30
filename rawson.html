@@ -1,4 +1,5 @@
 <title>Rawson &mdash; Jevo Masters</title>
+<meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,17 +198,18 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
 .recs .reclist::-webkit-scrollbar{height:9px}
 .recs .reclist::-webkit-scrollbar-track{background:var(--hair)}
 .recs .reclist::-webkit-scrollbar-thumb{background:var(--ink)}
-.rec{flex:0 0 min(70vw,268px);scroll-snap-align:start;background:var(--surf);
-  border:3px solid var(--ink);padding:1rem 1.05rem 1.05rem;display:flex;flex-direction:column;gap:.55rem}
+.rec{flex:0 0 min(74vw,292px);scroll-snap-align:start;background:var(--surf);
+  border:3px solid var(--ink);padding:1rem 1.05rem 1.15rem;display:flex;flex-direction:column;gap:.6rem}
 .rec .slug{background:var(--ink);color:var(--surf);align-self:flex-start;margin:0}
 .rec b{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
-  font-size:clamp(1.9rem,6vw,2.5rem);line-height:1;font-variant-numeric:tabular-nums}
-.rec .faces{display:flex;gap:.4rem}
-.rec .faces img{width:46px;height:46px;object-fit:cover;border:2px solid var(--ink);
+  font-size:clamp(2.6rem,9vw,3.4rem);line-height:.92;font-variant-numeric:tabular-nums;
+  letter-spacing:.005em;margin:.1rem 0 0}
+.rec .faces{display:flex;gap:.5rem}
+.rec .faces img{width:80px;height:80px;object-fit:cover;border:3px solid var(--ink);
   filter:grayscale(1) contrast(1.08)}
 .rec .faces img.raw{filter:none}
-.rec em{font-style:normal;font-size:.7rem;font-weight:600;letter-spacing:.03em;
-  text-transform:uppercase;color:var(--faint);line-height:1.5;margin-top:auto}
+.rec em{font-style:normal;font-size:.66rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--faint);line-height:1.55;margin-top:auto}
 
 .mgrid{display:flex;flex-direction:column;border:3px solid var(--ink);background:var(--surf)}
 .mcard{display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;text-decoration:none;
@@ -249,6 +251,21 @@ img.raw{filter:none !important}
   letter-spacing:.06em;text-transform:uppercase;fill:var(--ink)}
 .cycnote{text-align:center;font-size:.62rem;font-weight:700;letter-spacing:.12em;
   text-transform:uppercase;color:var(--faint);margin:.5rem 0 0}
+
+/* roster sort tabs */
+.tabs{display:flex;gap:0;margin:0 0 .55rem;border:3px solid var(--ink);width:fit-content;max-width:100%}
+.tab{font:inherit;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  background:var(--surf);color:var(--soft);border:0;border-right:3px solid var(--ink);
+  padding:.6em 1.05em;cursor:pointer}
+.tab:last-child{border-right:0}
+.tab.on{background:var(--ink);color:var(--surf)}
+.tab:hover:not(.on){color:var(--ink)}
+.tabnote{font-size:.66rem;font-weight:600;letter-spacing:.04em;color:var(--faint);
+  margin:0 0 .85rem;line-height:1.5}
+.mcard .metric{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
+  font-size:1.15rem;color:var(--gold);flex:none;min-width:3.4em;text-align:right;
+  font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.mcard .rings{display:none}
 </style>
 <div class="page">
   <a class="back" href="index.html">&larr; Jevo Masters</a>
