@@ -3,128 +3,219 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Franklin:wght@400;600;700;800&display=swap">
 <style>:root{
-  --bg:#EFEBE1; --surf:#FFFDF7; --ink:#17211F; --soft:#4C5A57; --faint:#7B8884;
-  --rule:#D8D2C4; --hair:#E5E0D4;
-  --gold:#8A6D12; --goldbg:#F6EFD6; --neg:#A6382F; --negbg:#F8E6E3;
-  --pos:#2C6B4C; --posbg:#E2F0E7; --shadow:rgba(23,33,31,.10);
+  --bg:#E8E6E0; --surf:#FAF9F5; --ink:#161613; --soft:#45443E; --faint:#807E75;
+  --hair:#D2CFC6;
+  --red:#B0212B; --redbg:#F3E1DF;
+  --blue:#1D4E9B; --bluebg:#E0E8F4;
+  --gold:#8A6A05; --goldbg:#EFE4BE;
+  --panel:#171714; --panel-ink:#F4F2EA; --panel-dim:#98958A; --phair:#31312C;
+  --hot:#FF6A57; --cool:#86ACFF; --shine:#E8C558;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#121A19; --surf:#1B2523; --ink:#EDE8DC; --soft:#A7B3AE; --faint:#7B8884;
-    --rule:#2E3A37; --hair:#232E2C;
-    --gold:#D9B23F; --goldbg:#2A2517; --neg:#E0796C; --negbg:#2E1F1D;
-    --pos:#6FC194; --posbg:#17281F; --shadow:rgba(0,0,0,.45);
+    --bg:#121214; --surf:#1C1C1F; --ink:#ECEAE2; --soft:#B7B4AA; --faint:#7E7C73;
+    --hair:#2F2F33;
+    --red:#E4604F; --redbg:#301B18;
+    --blue:#8CACEF; --bluebg:#1A2334;
+    --gold:#D8B349; --goldbg:#2B2412;
+    --panel:#0B0B0D; --panel-ink:#F4F2EA; --panel-dim:#8E8B81; --phair:#26262A;
+    --hot:#FF6A57; --cool:#86ACFF; --shine:#E8C558;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#121A19; --surf:#1B2523; --ink:#EDE8DC; --soft:#A7B3AE; --faint:#7B8884;
-  --rule:#2E3A37; --hair:#232E2C;
-  --gold:#D9B23F; --goldbg:#2A2517; --neg:#E0796C; --negbg:#2E1F1D;
-  --pos:#6FC194; --posbg:#17281F; --shadow:rgba(0,0,0,.45);
+  --bg:#121214; --surf:#1C1C1F; --ink:#ECEAE2; --soft:#B7B4AA; --faint:#7E7C73;
+  --hair:#2F2F33;
+  --red:#E4604F; --redbg:#301B18;
+  --blue:#8CACEF; --bluebg:#1A2334;
+  --gold:#D8B349; --goldbg:#2B2412;
+  --panel:#0B0B0D; --panel-ink:#F4F2EA; --panel-dim:#8E8B81; --phair:#26262A;
+  --hot:#FF6A57; --cool:#86ACFF; --shine:#E8C558;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
-  font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;line-height:1.55;
+  font-family:"Libre Franklin","Franklin Gothic Medium",Arial,sans-serif;line-height:1.5;
   -webkit-font-smoothing:antialiased}
-.page{max-width:860px;margin:0 auto;padding:clamp(1rem,4vw,2.5rem) 1.1rem 4rem;
-  display:flex;flex-direction:column;gap:2.6rem}
+.page{max-width:880px;margin:0 auto;padding:clamp(1rem,4vw,2.4rem) 1.1rem 4rem;
+  display:flex;flex-direction:column;gap:2.8rem}
 a{color:inherit}
-.back{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--faint);text-decoration:none}
-.back:hover{color:var(--ink)}
-.kicker{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--faint);margin:0 0 .5rem}
-.hero{display:flex;gap:1.6rem;align-items:center;flex-wrap:wrap}
-.face{width:150px;height:150px;border-radius:2px;object-fit:cover;flex:none;
-  border:1px solid var(--rule);box-shadow:0 3px 16px var(--shadow)}
-h1{font-family:"Bebas Neue",Impact,sans-serif;font-size:clamp(3.4rem,13vw,6.2rem);
-  line-height:.85;margin:0;letter-spacing:.01em}
-.verdict{font-size:clamp(1.05rem,2.6vw,1.3rem);margin:.7rem 0 0;max-width:34ch;color:var(--ink)}
-.aka{font-size:.76rem;color:var(--faint);margin:.6rem 0 0;max-width:60ch;line-height:1.5}
-.badges{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.badge{background:var(--surf);padding:1.3rem 1.4rem}
-.badge h3{font-family:"Bebas Neue",Impact,sans-serif;font-size:clamp(1.7rem,5vw,2.5rem);
-  line-height:1;margin:0 0 .4rem;letter-spacing:.015em}
-.badge p{margin:0;color:var(--soft);font-size:.92rem;max-width:56ch}
-.badge.gold{background:var(--goldbg)} .badge.gold h3{color:var(--gold)}
-.badge.bad{background:var(--negbg)}  .badge.bad h3{color:var(--neg)}
-.badge.good{background:var(--posbg)} .badge.good h3{color:var(--pos)}
-h2{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.17em;
-  text-transform:uppercase;color:var(--faint);margin:0 0 1rem;font-weight:600}
-.faceoff{border-top:1px solid var(--rule);padding-top:1.6rem}
-.vs{display:flex;align-items:center;justify-content:center;gap:clamp(1rem,5vw,2.6rem)}
-.side{display:flex;flex-direction:column;align-items:center;gap:.6rem;flex:0 1 auto}
-.side img{width:clamp(76px,20vw,116px);height:clamp(76px,20vw,116px);border-radius:50%;
-  object-fit:cover;border:2px solid var(--rule)}
-.side span{font-family:"Bebas Neue",Impact,sans-serif;font-size:1.35rem;letter-spacing:.03em}
+img{max-width:100%}
+
+/* ---------- type ---------- */
+h1{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  font-size:clamp(3.2rem,13vw,6rem);line-height:.88;margin:0;
+  text-transform:uppercase;letter-spacing:.005em;font-weight:400}
+h2{font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink);margin:0 0 1rem;border-top:4px solid var(--ink);padding-top:.55rem}
+h2 small{font-weight:600;color:var(--faint);letter-spacing:.1em;float:right}
+.kicker{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--faint);margin:0 0 .6rem}
+.slug{display:inline-block;background:var(--ink);color:var(--surf);
+  font-size:.6rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  padding:.28em .6em .24em;margin:0 0 .7rem}
+.back{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);text-decoration:none;
+  border:2px solid var(--hair);padding:.35em .7em;align-self:flex-start}
+.back:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{display:flex;gap:1.7rem;align-items:center;flex-wrap:wrap;
+  border-bottom:4px solid var(--ink);padding-bottom:1.8rem}
+.face{width:156px;height:156px;object-fit:cover;flex:none;
+  filter:grayscale(1) contrast(1.08);border:3px solid var(--ink);
+  box-shadow:7px 7px 0 var(--ink)}
+.hero>div{flex:1;min-width:240px}
+.verdict{font-size:clamp(1.02rem,2.6vw,1.28rem);font-weight:600;line-height:1.35;
+  margin:.8rem 0 0;max-width:38ch}
+.aka{font-size:.74rem;color:var(--faint);margin:.7rem 0 0;max-width:60ch;line-height:1.55}
+
+/* ---------- badges: the clippings ---------- */
+.badges{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.badge{background:var(--surf);border:3px solid var(--ink);padding:1.15rem 1.25rem 1.25rem}
+.badge h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  font-weight:400;font-size:clamp(1.55rem,4.5vw,2.1rem);line-height:.95;
+  margin:0 0 .5rem;text-transform:uppercase;letter-spacing:.01em}
+.badge p{margin:0;color:var(--soft);font-size:.9rem;max-width:58ch}
+.badge.lead{grid-column:1/-1;box-shadow:7px 7px 0 var(--ink)}
+.badge.lead h3{font-size:clamp(2.2rem,7.5vw,3.4rem)}
+.badge.gold h3{color:var(--gold)} .badge.gold .slug{background:var(--gold);color:var(--surf)}
+.badge.bad h3{color:var(--red)}   .badge.bad .slug{background:var(--red);color:var(--surf)}
+.badge.good h3{color:var(--blue)} .badge.good .slug{background:var(--blue);color:var(--surf)}
+.badge.gold{background:var(--goldbg)}
+
+/* ---------- the grudge: fight card ---------- */
+.fight{background:var(--surf);border:3px solid var(--ink);box-shadow:7px 7px 0 var(--ink);
+  padding:1.6rem 1.2rem 1.4rem}
+.vs{display:flex;align-items:center;justify-content:center;gap:clamp(.9rem,4.5vw,2.4rem)}
+.side{display:flex;flex-direction:column;align-items:center;gap:.55rem;flex:0 1 auto;
+  text-align:center}
+.side img{width:clamp(84px,21vw,120px);height:clamp(84px,21vw,120px);object-fit:cover;
+  filter:grayscale(1) contrast(1.08)}
+.side span{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  font-size:clamp(1.05rem,3.5vw,1.4rem);text-transform:uppercase;letter-spacing:.02em}
+.side.you img{border:3px solid var(--blue);box-shadow:5px 5px 0 var(--blue)}
+.side.you span{color:var(--blue)}
+.side.them img{border:3px solid var(--red);box-shadow:5px 5px 0 var(--red)}
+.side.them span{color:var(--red)}
+.corner{font-size:.56rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--faint)}
 .score{text-align:center}
-.score strong{display:block;font-family:"Bebas Neue",Impact,sans-serif;
-  font-size:clamp(2.6rem,10vw,4rem);line-height:1;color:var(--neg)}
-.score span{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--faint)}
-.fo-note{text-align:center;color:var(--soft);font-size:.9rem;margin:1.1rem 0 0}
-.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;
-  background:var(--rule);border:1px solid var(--rule)}
-.numbers div{background:var(--surf);padding:1rem .9rem;text-align:center}
-.numbers b{display:block;font-family:"IBM Plex Mono",monospace;font-size:1.45rem;
-  font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
-.numbers span{display:block;font-size:.66rem;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--faint);margin-top:.35rem}
-.numbers .neg b{color:var(--neg)} .numbers .pos b{color:var(--pos)}
-.draft{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;
-  background:var(--rule);border:1px solid var(--rule)}
-.pick{background:var(--surf);padding:1.3rem 1.4rem}
-.pick .lab{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.14em;
-  text-transform:uppercase;margin:0 0 .5rem;color:var(--faint)}
-.pick h3{font-family:"Bebas Neue",Impact,sans-serif;font-size:2rem;line-height:1;margin:0 0 .5rem}
-.pick p{margin:0;color:var(--soft);font-size:.9rem}
-.pick.bad h3{color:var(--neg)} .pick.good h3{color:var(--pos)}
-.marks ul{list-style:none;margin:0;padding:0}
+.score strong{display:block;font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  font-weight:400;font-size:clamp(2.5rem,10vw,4.2rem);line-height:1;color:var(--red)}
+.score span{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint)}
+.fo-note{text-align:center;color:var(--soft);font-size:.88rem;margin:1.2rem 0 0}
+
+/* ---------- scoreboard strip ---------- */
+.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:1px;
+  background:var(--phair);border:3px solid var(--ink)}
+.numbers div{background:var(--panel);padding:1.05rem .8rem .95rem;text-align:center}
+.numbers b{display:block;font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  font-weight:400;font-size:1.7rem;line-height:1;color:var(--panel-ink);letter-spacing:.02em}
+.numbers span{display:block;font-size:.6rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--panel-dim);margin-top:.45rem}
+.numbers .neg b{color:var(--hot)} .numbers .pos b{color:var(--cool)}
+
+/* ---------- draft picks ---------- */
+.draft{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.9rem}
+.pick{background:var(--surf);border:3px solid var(--ink);padding:1.15rem 1.25rem}
+.pick h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
+  font-size:1.9rem;line-height:1;margin:0 0 .5rem;text-transform:uppercase}
+.pick p{margin:0;color:var(--soft);font-size:.88rem}
+.pick.bad h3{color:var(--red)}   .pick.bad .slug{background:var(--red);color:var(--surf)}
+.pick.good h3{color:var(--blue)} .pick.good .slug{background:var(--blue);color:var(--surf)}
+
+/* ---------- agate: extremes + seasons ---------- */
+.marks ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
 .marks li{display:flex;justify-content:space-between;gap:1.4rem;align-items:baseline;
-  padding:.8rem 0;border-bottom:1px solid var(--hair)}
-.marks li:last-child{border-bottom:none}
-.marks li span{color:var(--soft);font-size:.9rem}
-.marks li b{font-family:"IBM Plex Mono",monospace;font-weight:600;text-align:right;
-  font-variant-numeric:tabular-nums;white-space:nowrap}
-.marks li em{display:block;font-style:normal;font-weight:400;font-size:.7rem;color:var(--faint);
-  margin-top:.15rem}
+  padding:.75rem 0;border-bottom:1px solid var(--hair)}
+.marks li span{color:var(--soft);font-size:.88rem}
+.marks li b{font-weight:800;text-align:right;font-variant-numeric:tabular-nums;
+  white-space:nowrap;font-size:1rem}
+.marks li em{display:block;font-style:normal;font-weight:600;font-size:.66rem;white-space:normal;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin-top:.2rem}
 .wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-family:"IBM Plex Mono",monospace;
-  font-size:.78rem;font-variant-numeric:tabular-nums;min-width:540px}
-th{font-family:"IBM Plex Sans",sans-serif;font-size:.62rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--faint);font-weight:600;text-align:right;
-  padding:0 .55rem .5rem}
+table{width:100%;border-collapse:collapse;font-size:.8rem;
+  font-variant-numeric:tabular-nums;min-width:540px}
+th{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);
+  font-weight:800;text-align:right;padding:0 .55rem .45rem;border-bottom:2px solid var(--ink)}
 th:first-child,th:nth-child(2){text-align:left}
-td{padding:.45rem .55rem;border-bottom:1px solid var(--hair)}
-td.tm{font-family:"IBM Plex Sans",sans-serif;color:var(--soft);max-width:180px;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-td.n{text-align:right} .dim{color:var(--faint)}
-.neg{color:var(--neg)} .pos{color:var(--pos)}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+td{padding:.48rem .55rem;border-bottom:1px solid var(--hair)}
+td.tm{color:var(--soft);max-width:180px;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+td.n{text-align:right;font-weight:600} .dim{color:var(--faint);font-weight:400}
+.neg{color:var(--red)} .pos{color:var(--blue)}
+
+/* ---------- roster chips ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:.55rem}
 .chip{display:flex;align-items:center;gap:.5rem;text-decoration:none;background:var(--surf);
-  border:1px solid var(--rule);padding:.35rem .7rem .35rem .35rem;border-radius:100px}
-.chip img{width:26px;height:26px;border-radius:50%;object-fit:cover}
-.chip span{font-size:.82rem;font-weight:500}
-.chip:hover{border-color:var(--ink)}
-footer{border-top:1px solid var(--rule);padding-top:1.1rem;font-size:.7rem;color:var(--faint);
-  font-family:"IBM Plex Mono",monospace;line-height:1.8}
-.ihero h1{font-size:clamp(4rem,17vw,9rem)}
-.mgrid{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.mcard{display:flex;align-items:center;gap:1rem;background:var(--surf);padding:.9rem 1.1rem;
-  text-decoration:none}
-.mcard:hover{background:var(--goldbg)}
-.mcard img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none;
-  border:1px solid var(--rule)}
+  border:2px solid var(--ink);padding:.3rem .7rem .3rem .3rem}
+.chip img{width:26px;height:26px;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+.chip span{font-size:.78rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+.chip:hover{background:var(--ink)} .chip:hover span{color:var(--surf)}
+footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-weight:600;
+  letter-spacing:.05em;color:var(--faint);line-height:1.9;text-transform:uppercase}
+
+/* ---------- index ---------- */
+.ihero{border-bottom:4px solid var(--ink);padding-bottom:1.6rem}
+.ihero h1{font-size:clamp(3.6rem,15.5vw,8.2rem)}
+.ihero h1 i{font-style:normal;color:var(--red)}
+.ihero .verdict{max-width:52ch}
+
+.stories{display:grid;gap:1rem;grid-template-columns:repeat(6,1fr)}
+.story{background:var(--surf);border:3px solid var(--ink);padding:1.15rem 1.25rem 1.25rem;
+  grid-column:span 2}
+.story.wide{grid-column:1/-1}
+.story.wide.lead{box-shadow:7px 7px 0 var(--ink)}
+.story .slug{background:var(--red);color:var(--surf)}
+.story h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
+  font-size:clamp(1.5rem,4.5vw,2rem);line-height:.95;margin:0 0 .55rem;
+  text-transform:uppercase}
+.story.lead h3{font-size:clamp(2.1rem,7vw,3.2rem)}
+.story p{margin:0;color:var(--soft);font-size:.9rem;max-width:66ch}
+.story p+p{margin-top:.55rem}
+.story b{color:var(--ink)}
+@media (max-width:719px){.story{grid-column:1/-1}}
+
+.bars{display:flex;align-items:flex-end;gap:3px;height:104px;margin:1.1rem 0 0;
+  border-bottom:2px solid var(--ink);padding-bottom:0}
+.bar{flex:1;background:var(--ink);min-width:0}
+.bar.hi{background:var(--red)} .bar.lo{background:var(--blue)}
+.barlabels{display:flex;justify-content:space-between;font-size:.62rem;font-weight:700;
+  letter-spacing:.08em;color:var(--faint);margin-top:.35rem;text-transform:uppercase}
+.barnote{font-size:.7rem;color:var(--faint);margin:.6rem 0 0}
+
+.recs ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
+.recs li{display:flex;justify-content:space-between;gap:1.2rem;align-items:baseline;
+  padding:.7rem 0;border-bottom:1px solid var(--hair)}
+.recs li span{color:var(--soft);font-size:.86rem}
+.recs li b{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
+  font-size:1.25rem;letter-spacing:.02em;text-align:right;white-space:nowrap}
+.recs li em{display:block;font-style:normal;font-weight:600;font-size:.64rem;white-space:normal;
+  font-family:"Libre Franklin","Franklin Gothic Medium",Arial,sans-serif;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-top:.25rem}
+
+.mgrid{display:flex;flex-direction:column;border:3px solid var(--ink);background:var(--surf)}
+.mcard{display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;text-decoration:none;
+  border-bottom:1px solid var(--hair);background:var(--surf)}
+.mcard:last-child{border-bottom:none}
+.mcard:hover{background:var(--ink)}
+.mcard:hover h3,.mcard:hover .tag{color:var(--surf)}
+.mcard:hover .sm{color:var(--panel-dim)}
+.mcard img{width:58px;height:58px;object-fit:cover;flex:none;
+  filter:grayscale(1) contrast(1.08);border:2px solid var(--ink)}
 .mcard div{flex:1;min-width:0}
-.mcard h3{font-family:"Bebas Neue",Impact,sans-serif;font-size:1.6rem;line-height:1;margin:0}
-.mcard .sm{margin:.15rem 0 0;font-size:.72rem;color:var(--faint);
-  font-family:"IBM Plex Mono",monospace}
-.mcard .tag{margin:.3rem 0 0;font-size:.84rem;color:var(--soft);overflow:hidden;
+.mcard h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
+  font-size:1.55rem;line-height:1;margin:0;text-transform:uppercase;letter-spacing:.02em}
+.mcard .sm{margin:.2rem 0 0;font-size:.66rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--faint)}
+.mcard .tag{margin:.3rem 0 0;font-size:.82rem;color:var(--soft);overflow:hidden;
   text-overflow:ellipsis;white-space:nowrap}
-.rings{color:var(--gold);font-size:.8rem;letter-spacing:.15em;flex:none}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.rings{color:var(--gold);font-size:.85rem;letter-spacing:.18em;flex:none}
+.mcard:hover .rings{color:var(--shine)}
+
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
 </style>
 <div class="page">
   <a class="back" href="index.html">&larr; Jevo Masters</a>
@@ -139,44 +230,52 @@ footer{border-top:1px solid var(--rule);padding-top:1.1rem;font-size:.7rem;color
     </div>
   </header>
 
-  <section class="badges"><article class="badge gold"><h3>Champion, 2023</h3><p>One ring. It counts forever.</p></article>
-<article class="badge good"><h3>Owns Smeds</h3><p>14-5 in 19 meetings. He knows. Everyone knows.</p></article>
-<article class="badge good"><h3>24 Weekly Highs</h3><p>Top scorer in the entire league, 24 separate weeks.</p></article></section>
+  <section class="badges"><article class="badge gold lead"><span class="slug">Championship</span><h3>Champion, 2023</h3><p>One ring. It counts forever.</p></article>
+<article class="badge good"><span class="slug">Glory</span><h3>Owns Smeds</h3><p>14-5 in 19 meetings. He knows. Everyone knows.</p></article>
+<article class="badge good"><span class="slug">Glory</span><h3>24 Weekly Highs</h3><p>Top scorer in the entire league, 24 separate weeks.</p></article></section>
 
   <section class="faceoff">
-    <h2>Worst Enemy</h2>
-    <div class="vs">
-      <div class="side"><img src="img/josh.jpg" alt=""><span>Josh</span></div>
-      <div class="score"><strong>6-11</strong><span>17 meetings</span></div>
-      <div class="side"><img src="img/salim.jpg" alt=""><span>Salim</span></div>
+    <h2>The Grudge <small>no one has beaten him more often</small></h2>
+    <div class="fight">
+      <div class="vs">
+        <div class="side you"><img src="img/josh.jpg" alt=""><span>Josh</span><i class="corner">Blue corner</i></div>
+        <div class="score"><strong>6-11</strong><span>17 meetings</span></div>
+        <div class="side them"><img src="img/salim.jpg" alt=""><span>Salim</span><i class="corner">Red corner</i></div>
+      </div>
+      <p class="fo-note">No one has beaten Josh more often than Salim has.</p>
     </div>
-    <p class="fo-note">No one has beaten Josh more often.</p>
   </section>
 
-  <section class="numbers">
-    <div><b>96&ndash;78</b><span>Record</span></div>
-    <div><b>118.3</b><span>Points / game &middot; #2</span></div>
-    <div><b>&plusmn;26.3</b><span>Weekly swing</span></div>
-    <div><b>53.9%</b><span>All-play &middot; #2</span></div>
-    <div class="pos"><b>+1.8</b><span>Career luck &middot; #6</span></div>
-    <div><b>1</b><span>Titles &middot; 6 podiums</span></div>
+  <section>
+    <h2>The Career Line</h2>
+    <div class="numbers">
+      <div><b>96&ndash;78</b><span>Record</span></div>
+      <div><b>118.3</b><span>Points / game &middot; #2</span></div>
+      <div><b>&plusmn;26.3</b><span>Weekly swing</span></div>
+      <div><b>53.9%</b><span>All-play &middot; #2</span></div>
+      <div class="pos"><b>+1.8</b><span>Career luck &middot; #6</span></div>
+      <div><b>1</b><span>Titles &middot; 6 podiums</span></div>
+    </div>
   </section>
 
-  <section class="draft">
-    <article class="pick bad">
-      <p class="lab">Worst pick</p>
-      <h3>Allen Robinson</h3>
-      <p>#32 overall in 2017 &mdash; scored Zero, finished outside the top 400.</p>
-    </article>
-    <article class="pick good">
-      <p class="lab">Best steal</p>
-      <h3>Dak Prescott</h3>
-      <p>Pick #182 in 2019 &mdash; 357.8 points, finished #3 overall.</p>
-    </article>
+  <section>
+    <h2>The Draft Record</h2>
+    <div class="draft">
+      <article class="pick bad">
+        <span class="slug">The bust</span>
+        <h3>Allen Robinson</h3>
+        <p>#32 overall in 2017 &mdash; scored Zero, finished outside the top 400.</p>
+      </article>
+      <article class="pick good">
+        <span class="slug">The steal</span>
+        <h3>Dak Prescott</h3>
+        <p>Pick #182 in 2019 &mdash; 357.8 points, finished #3 overall.</p>
+      </article>
+    </div>
   </section>
 
   <section class="marks">
-    <h2>Extremes</h2>
+    <h2>Career Extremes</h2>
     <ul>
       <li><span>Best week</span><b>206.80<em>2020 wk 2 vs Rawson</em></b></li>
       <li><span>Worst week</span><b>58.64<em>2013 wk 10</em></b></li>
@@ -187,7 +286,7 @@ footer{border-top:1px solid var(--rule);padding-top:1.1rem;font-size:.7rem;color
   </section>
 
   <section class="table">
-    <h2>Every season</h2>
+    <h2>The Full Record</h2>
     <div class="wrap"><table>
       <thead><tr><th>Yr</th><th>Team</th><th>Rec</th><th>Fin</th><th>PPG</th><th>Luck</th><th>All-play</th></tr></thead>
       <tbody><tr><td>2013</td><td class="tm">Wilson&#x27;s of Bitches</td><td class="n">2-11</td><td class="n">7</td><td class="n dim">99.4</td><td class="n neg">-0.6</td><td class="n dim">20%</td></tr>
@@ -207,5 +306,5 @@ footer{border-top:1px solid var(--rule);padding-top:1.1rem;font-size:.7rem;color
   </section>
 
   <nav class="roster"><h2>The rest of them</h2><div class="chips"><a class="chip" href="avo.html"><img src="img/avo.jpg" alt=""><span>Avo</span></a><a class="chip" href="chirch.html"><img src="img/chirch.jpg" alt=""><span>Chirch</span></a><a class="chip" href="della.html"><img src="img/della.jpg" alt=""><span>Della</span></a><a class="chip" href="kermick.html"><img src="img/kermick.jpg" alt=""><span>Kermick</span></a><a class="chip" href="noodles.html"><img src="img/noodles.jpg" alt=""><span>Noodles</span></a><a class="chip" href="rawson.html"><img src="img/rawson.jpg" alt=""><span>Rawson</span></a><a class="chip" href="rhino.html"><img src="img/rhino.jpg" alt=""><span>Rhino</span></a><a class="chip" href="salim.html"><img src="img/salim.jpg" alt=""><span>Salim</span></a><a class="chip" href="scorzo.html"><img src="img/scorzo.jpg" alt=""><span>Scorzo</span></a><a class="chip" href="smeds.html"><img src="img/smeds.jpg" alt=""><span>Smeds</span></a><a class="chip" href="wood.html"><img src="img/wood.jpg" alt=""><span>Wood</span></a></div></nav>
-  <footer>Jevo Masters &middot; 2013&ndash;2025 &middot; 156 team-seasons, 3,004 weekly scores, sourced from Yahoo.</footer>
+  <footer>Jevo Masters &middot; 2013&ndash;2025 &middot; 156 team-seasons &middot; 2,452 weekly scores &middot; sourced from Yahoo.</footer>
 </div>
