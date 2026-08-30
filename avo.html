@@ -72,14 +72,22 @@ h2 small{font-weight:600;color:var(--faint);letter-spacing:.1em;float:right}
 .aka{font-size:.74rem;color:var(--faint);margin:.7rem 0 0;max-width:60ch;line-height:1.55}
 
 /* ---------- badges: the clippings ---------- */
-.badges{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.badges{display:flex;flex-direction:column;gap:.9rem}
 .badge{background:var(--surf);border:3px solid var(--ink);padding:1.15rem 1.25rem 1.25rem}
 .badge h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
   font-weight:400;font-size:clamp(1.55rem,4.5vw,2.1rem);line-height:.95;
   margin:0 0 .5rem;text-transform:uppercase;letter-spacing:.01em}
 .badge p{margin:0;color:var(--soft);font-size:.9rem;max-width:58ch}
-.badge.lead{grid-column:1/-1;box-shadow:7px 7px 0 var(--ink)}
+.badge.lead{box-shadow:7px 7px 0 var(--ink)}
 .badge.lead h3{font-size:clamp(2.2rem,7.5vw,3.4rem)}
+.badgerow{display:flex;gap:.9rem;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;padding:0 0 .9rem;-webkit-overflow-scrolling:touch}
+.badgerow::-webkit-scrollbar{height:9px}
+.badgerow::-webkit-scrollbar-track{background:var(--hair)}
+.badgerow::-webkit-scrollbar-thumb{background:var(--ink)}
+.badgerow .badge{flex:0 0 min(80vw,330px);scroll-snap-align:start;display:flex;flex-direction:column}
+.badgerow .badge .slug{align-self:flex-start}
+.badges .swipe{margin:0}
 .badge.gold h3{color:var(--gold)} .badge.gold .slug{background:var(--gold);color:var(--surf)}
 .badge.bad h3{color:var(--red)}   .badge.bad .slug{background:var(--red);color:var(--surf)}
 .badge.good h3{color:var(--blue)} .badge.good .slug{background:var(--blue);color:var(--surf)}
@@ -292,11 +300,7 @@ img.raw{filter:none !important}
     </div>
   </header>
 
-  <section class="badges"><article class="badge gold lead"><span class="slug">Championship</span><h3>Champion, 2022</h3><p>One ring. It counts forever.</p></article>
-<article class="badge good"><span class="slug">Glory</span><h3>Owns Rawson</h3><p>13-4 in 17 meetings. He knows. Everyone knows.</p></article>
-<article class="badge bad"><span class="slug">Disgrace</span><h3>Worst Pick in League History</h3><p>Allen Robinson went WR8 in 2021, played 12 games, and finished WR87. Fully his fault.</p></article>
-<article class="badge good"><span class="slug">Glory</span><h3>Never Injured</h3><p>Just 1 of 52 early picks has ever missed half a season. The healthiest draft record in the league.</p></article>
-<article class="badge bad"><span class="slug">Disgrace</span><h3>2 Last-Place Finishes</h3><p>Bottom of the entire table, more than once.</p></article></section>
+  <section class="badges"><article class="badge gold lead"><span class="slug">Championship</span><h3>Champion, 2022</h3><p>One ring. It counts forever.</p></article><div class="badgerow"><article class="badge good"><span class="slug">Glory</span><h3>Owns Rawson</h3><p>13-4 in 17 meetings. He knows. Everyone knows.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>Worst Pick in League History</h3><p>Allen Robinson went WR8 in 2021, played 12 games, and finished WR87. Fully his fault.</p></article><article class="badge good"><span class="slug">Glory</span><h3>Never Injured</h3><p>Just 1 of 52 early picks has ever missed half a season. The healthiest draft record in the league.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>2 Last-Place Finishes</h3><p>Bottom of the entire table, more than once.</p></article><article class="badge neutral"><span class="slug">Cold fact</span><h3>5 Team Names</h3><p>Thirteen seasons, 5 different identities, one set of results.</p></article></div><p class="swipe">&larr; Swipe &mdash; 5 more &rarr;</p></section>
 
   <section class="faceoff">
     <h2>The Grudge <small>no one has beaten him more often</small></h2>

@@ -72,14 +72,22 @@ h2 small{font-weight:600;color:var(--faint);letter-spacing:.1em;float:right}
 .aka{font-size:.74rem;color:var(--faint);margin:.7rem 0 0;max-width:60ch;line-height:1.55}
 
 /* ---------- badges: the clippings ---------- */
-.badges{display:grid;gap:.9rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.badges{display:flex;flex-direction:column;gap:.9rem}
 .badge{background:var(--surf);border:3px solid var(--ink);padding:1.15rem 1.25rem 1.25rem}
 .badge h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
   font-weight:400;font-size:clamp(1.55rem,4.5vw,2.1rem);line-height:.95;
   margin:0 0 .5rem;text-transform:uppercase;letter-spacing:.01em}
 .badge p{margin:0;color:var(--soft);font-size:.9rem;max-width:58ch}
-.badge.lead{grid-column:1/-1;box-shadow:7px 7px 0 var(--ink)}
+.badge.lead{box-shadow:7px 7px 0 var(--ink)}
 .badge.lead h3{font-size:clamp(2.2rem,7.5vw,3.4rem)}
+.badgerow{display:flex;gap:.9rem;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;padding:0 0 .9rem;-webkit-overflow-scrolling:touch}
+.badgerow::-webkit-scrollbar{height:9px}
+.badgerow::-webkit-scrollbar-track{background:var(--hair)}
+.badgerow::-webkit-scrollbar-thumb{background:var(--ink)}
+.badgerow .badge{flex:0 0 min(80vw,330px);scroll-snap-align:start;display:flex;flex-direction:column}
+.badgerow .badge .slug{align-self:flex-start}
+.badges .swipe{margin:0}
 .badge.gold h3{color:var(--gold)} .badge.gold .slug{background:var(--gold);color:var(--surf)}
 .badge.bad h3{color:var(--red)}   .badge.bad .slug{background:var(--red);color:var(--surf)}
 .badge.good h3{color:var(--blue)} .badge.good .slug{background:var(--blue);color:var(--surf)}
@@ -292,12 +300,7 @@ img.raw{filter:none !important}
     </div>
   </header>
 
-  <section class="badges"><article class="badge bad lead"><span class="slug">Disgrace</span><h3>Best Team, No Trophy</h3><p>Best scoring in the league. Zero titles in 13 seasons.</p></article>
-<article class="badge good"><span class="slug">Glory</span><h3>Owns Rawson</h3><p>11-4 in 15 meetings. He knows. Everyone knows.</p></article>
-<article class="badge bad"><span class="slug">Disgrace</span><h3>The Bridesmaid</h3><p>The #2 seed 5 times. The #1 seed never, in 13 seasons. The 2-seed has won this league once in 13 tries.</p></article>
-<article class="badge good"><span class="slug">Glory</span><h3>Highest Scoring, All Time</h3><p>120.5 per game across 174 games.</p></article>
-<article class="badge neutral"><span class="slug">Cold fact</span><h3>Most Predictable</h3><p>The flattest scorer in the league. You always know exactly what is coming.</p></article>
-<article class="badge neutral"><span class="slug">Cold fact</span><h3>Never Changed the Name</h3><p>Thirteen seasons as Miami Madness. Not once tempted.</p></article></section>
+  <section class="badges"><article class="badge bad lead"><span class="slug">Disgrace</span><h3>Best Team, No Trophy</h3><p>Best scoring in the league. Zero titles in 13 seasons.</p></article><div class="badgerow"><article class="badge good"><span class="slug">Glory</span><h3>Owns Rawson</h3><p>11-4 in 15 meetings. He knows. Everyone knows.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>The Bridesmaid</h3><p>The #2 seed 5 times. The #1 seed never, in 13 seasons. The 2-seed has won this league once in 13 tries.</p></article><article class="badge good"><span class="slug">Glory</span><h3>Highest Scoring, All Time</h3><p>120.5 per game across 174 games.</p></article><article class="badge neutral"><span class="slug">Cold fact</span><h3>Most Predictable</h3><p>The flattest scorer in the league. You always know exactly what is coming.</p></article></div><p class="swipe">&larr; Swipe &mdash; 4 more &rarr;</p></section>
 
   <section class="faceoff">
     <h2>The Grudge <small>no one has beaten him more often</small></h2>
