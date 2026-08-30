@@ -72,7 +72,7 @@ h2 small{font-weight:600;color:var(--faint);letter-spacing:.1em;float:right}
 .aka{font-size:.74rem;color:var(--faint);margin:.7rem 0 0;max-width:60ch;line-height:1.55}
 
 /* ---------- badges: the clippings ---------- */
-.badges{display:flex;flex-direction:column;gap:.9rem}
+.badges{display:flex;flex-direction:column;gap:2rem}
 .badge{background:var(--surf);border:3px solid var(--ink);padding:1.15rem 1.25rem 1.25rem}
 .badge h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
   font-weight:400;font-size:clamp(1.55rem,4.5vw,2.1rem);line-height:.95;
@@ -80,6 +80,12 @@ h2 small{font-weight:600;color:var(--faint);letter-spacing:.1em;float:right}
 .badge p{margin:0;color:var(--soft);font-size:.9rem;max-width:58ch}
 .badge.lead{box-shadow:7px 7px 0 var(--ink)}
 .badge.lead h3{font-size:clamp(2.2rem,7.5vw,3.4rem)}
+.cat{display:flex;flex-direction:column;gap:.9rem}
+.cat h2{margin:0;border-top-width:4px}
+.cat.gold h2{border-top-color:var(--gold);color:var(--gold)}
+.cat.bad h2{border-top-color:var(--red);color:var(--red)}
+.cat.good h2{border-top-color:var(--blue);color:var(--blue)}
+.cat h2 small{float:right;font-weight:800;color:inherit;opacity:.55}
 .badgerow{display:flex;gap:.9rem;overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x mandatory;padding:0 0 .9rem;-webkit-overflow-scrolling:touch}
 .badgerow::-webkit-scrollbar{height:9px}
@@ -173,7 +179,7 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
 .ihero h1 i{font-style:normal;color:var(--red)}
 .ihero .verdict{max-width:52ch}
 
-.stories{display:flex;gap:1rem;overflow-x:auto;overscroll-behavior-x:contain;
+.stories{display:flex;gap:1rem;align-items:flex-start;overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x mandatory;scroll-padding-left:0;padding:0 0 .95rem;
   -webkit-overflow-scrolling:touch}
 .stories::-webkit-scrollbar{height:9px}
@@ -202,7 +208,7 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
   letter-spacing:.08em;color:var(--faint);margin-top:.35rem;text-transform:uppercase}
 .barnote{font-size:.7rem;color:var(--faint);margin:.6rem 0 0}
 
-.recs .reclist{display:flex;gap:1rem;overflow-x:auto;overscroll-behavior-x:contain;
+.recs .reclist{display:flex;gap:1rem;align-items:stretch;overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x mandatory;padding:0 0 .95rem;-webkit-overflow-scrolling:touch}
 .recs .reclist::-webkit-scrollbar{height:9px}
 .recs .reclist::-webkit-scrollbar-track{background:var(--hair)}
@@ -210,6 +216,12 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
 .rec{flex:0 0 min(74vw,292px);scroll-snap-align:start;background:var(--surf);
   border:3px solid var(--ink);padding:1rem 1.05rem 1.15rem;display:flex;flex-direction:column;gap:.6rem}
 .rec .slug{background:var(--ink);color:var(--surf);align-self:flex-start;margin:0}
+.rec.bad{background:var(--redbg)}   .rec.bad b{color:var(--red)}   .rec.bad .slug{background:var(--red)}
+.rec.good{background:var(--bluebg)} .rec.good b{color:var(--blue)} .rec.good .slug{background:var(--blue)}
+.rec.gold{background:var(--goldbg)} .rec.gold b{color:var(--gold)} .rec.gold .slug{background:var(--gold)}
+.rec.person b{font-size:clamp(1.5rem,5vw,1.95rem);line-height:1.02}
+.rec.person em{text-transform:none;letter-spacing:0;font-size:.76rem;font-weight:500}
+.rec.person .faces img{width:92px;height:92px}
 .rec b{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
   font-size:clamp(2.6rem,9vw,3.4rem);line-height:.92;font-variant-numeric:tabular-nums;
   letter-spacing:.005em;margin:.1rem 0 0}
@@ -262,10 +274,12 @@ img.raw{filter:none !important}
   text-transform:uppercase;color:var(--faint);margin:.5rem 0 0}
 
 /* roster sort tabs */
-.tabs{display:flex;gap:0;margin:0 0 .55rem;border:3px solid var(--ink);width:fit-content;max-width:100%}
-.tab{font:inherit;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+.tabs{display:flex;gap:0;margin:0 0 .55rem;border:3px solid var(--ink);max-width:100%;
+  overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab{font:inherit;font-size:.66rem;flex:0 0 auto;white-space:nowrap;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
   background:var(--surf);color:var(--soft);border:0;border-right:3px solid var(--ink);
-  padding:.6em 1.05em;cursor:pointer}
+  padding:.6em .85em;cursor:pointer}
 .tab:last-child{border-right:0}
 .tab.on{background:var(--ink);color:var(--surf)}
 .tab:hover:not(.on){color:var(--ink)}
@@ -348,22 +362,34 @@ img.raw{filter:none !important}
 
   <section class="recs">
     <h2>The Book of Records</h2>
-    <div class="reclist"><article class="rec"><span class="slug">Highest week ever</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"></div><b>226.06</b><em>Salim &middot; 2019 wk 5</em></article>
-<article class="rec"><span class="slug">Lowest week ever</span><div class="faces"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><b>12.00</b><em>Smeds &middot; 2013 wk 9</em></article>
-<article class="rec"><span class="slug">Biggest beatdown</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh" title="Josh"></div><b>by 125.82</b><em>Salim 226.06 over Josh 100.24 &middot; 2019 wk 5</em></article>
-<article class="rec"><span class="slug">Closest game</span><div class="faces"><img class="" src="img/wood.jpg?v=4976bce5" alt="Wood" title="Wood"><img class="" src="img/avo.jpg?v=0cae7ec2" alt="Avo" title="Avo"></div><b>by 0.06</b><em>Wood 117.26 over Avo 117.20 &middot; 2023 wk 7</em></article>
-<article class="rec"><span class="slug">Lowest winning score</span><div class="faces"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt="Noodles" title="Noodles"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><b>67.56</b><em>Noodles over Smeds (57.22) &middot; 2021 wk 15</em></article>
-<article class="rec"><span class="slug">Highest-scoring game</span><div class="faces"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh" title="Josh"><img class="" src="img/rawson.jpg?v=d7de8852" alt="Rawson" title="Rawson"></div><b>347.82</b><em>Josh 206.80 over Rawson 141.02 &middot; 2020 wk 2</em></article>
-<article class="rec"><span class="slug">Hardest season ever</span><div class="faces"><img class="" src="img/scorzo.jpg?v=383df316" alt="Scorzo" title="Scorzo"></div><b>138.9/wk</b><em>Scorzo &middot; 2019 &middot; faced +22.9 above league average and went 4&ndash;9</em></article>
-<article class="rec"><span class="slug">Softest season ever</span><div class="faces"><img class="" src="img/scorzo.jpg?v=383df316" alt="Scorzo" title="Scorzo"></div><b>101.0/wk</b><em>Scorzo &middot; 2023 &middot; faced 11.9 below league average and went 9&ndash;5</em></article>
-<article class="rec"><span class="slug">Toughest slate, career</span><div class="faces"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt="Noodles" title="Noodles"></div><b>117.3/wk</b><em>Noodles &middot; his opponents outscore the league by 2.2 a week, every week, for 13 years</em></article>
-<article class="rec"><span class="slug">Softest slate, career</span><div class="faces"><img class="" src="img/avo.jpg?v=0cae7ec2" alt="Avo" title="Avo"></div><b>113.2/wk</b><em>Avo &middot; 1.9 a week below what everyone else has had to beat</em></article>
-<article class="rec"><span class="slug">Most robbed, all time</span><div class="faces"><img class="" src="img/rhino.jpg?v=96e44d1d" alt="Rhino" title="Rhino"></div><b>9 wins</b><em>Rhino went 82&ndash;92. He earned 91&ndash;83.</em></article>
-<article class="rec"><span class="slug">Highest playoff score</span><div class="faces"><img class="" src="img/chirch.jpg?v=4a4720a7" alt="Chirch" title="Chirch"></div><b>204.54</b><em>Chirch &middot; 2014 wk 14</em></article>
-<article class="rec"><span class="slug">Worst score in a final week</span><div class="faces"><img class="" src="img/scorzo.jpg?v=383df316" alt="Scorzo" title="Scorzo"></div><b>53.58</b><em>Scorzo &middot; 2025 wk 17 &middot; lost by 75.8</em></article>
-<article class="rec"><span class="slug">Biggest January collapse</span><div class="faces"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><b>-8.5/wk</b><em>Smeds scores 115.2 in the regular season and 106.7 in the playoffs</em></article>
-<article class="rec"><span class="slug">Best season ever</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"></div><b>12&ndash;1, 149.3/wk</b><em>Salim &middot; 2019 &middot; outscored 84.6% of the league weekly</em></article></div>
-    <p class="swipe">&larr; Swipe &mdash; 15 records &rarr;</p>
+    <div class="reclist"><article class="rec good"><span class="slug">Highest week ever</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"></div><b>226.06</b><em>Salim &middot; 2019 wk 5</em></article>
+<article class="rec bad"><span class="slug">Lowest week ever</span><div class="faces"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><b>12.00</b><em>Smeds &middot; 2013 wk 9</em></article>
+<article class="rec gold"><span class="slug">Biggest beatdown</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh" title="Josh"></div><b>by 125.82</b><em>Salim 226.06 over Josh 100.24 &middot; 2019 wk 5</em></article>
+<article class="rec neutral"><span class="slug">Closest game</span><div class="faces"><img class="" src="img/wood.jpg?v=4976bce5" alt="Wood" title="Wood"><img class="" src="img/avo.jpg?v=0cae7ec2" alt="Avo" title="Avo"></div><b>by 0.06</b><em>Wood 117.26 over Avo 117.20 &middot; 2023 wk 7</em></article>
+<article class="rec neutral"><span class="slug">Lowest winning score</span><div class="faces"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt="Noodles" title="Noodles"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><b>67.56</b><em>Noodles over Smeds (57.22) &middot; 2021 wk 15</em></article>
+<article class="rec gold"><span class="slug">Highest-scoring game</span><div class="faces"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh" title="Josh"><img class="" src="img/rawson.jpg?v=d7de8852" alt="Rawson" title="Rawson"></div><b>347.82</b><em>Josh 206.80 over Rawson 141.02 &middot; 2020 wk 2</em></article>
+<article class="rec bad"><span class="slug">Hardest season ever</span><div class="faces"><img class="" src="img/scorzo.jpg?v=383df316" alt="Scorzo" title="Scorzo"></div><b>138.9/wk</b><em>Scorzo &middot; 2019 &middot; faced +22.9 above league average and went 4&ndash;9</em></article>
+<article class="rec good"><span class="slug">Softest season ever</span><div class="faces"><img class="" src="img/scorzo.jpg?v=383df316" alt="Scorzo" title="Scorzo"></div><b>101.0/wk</b><em>Scorzo &middot; 2023 &middot; faced 11.9 below league average and went 9&ndash;5</em></article>
+<article class="rec bad"><span class="slug">Toughest slate, career</span><div class="faces"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt="Noodles" title="Noodles"></div><b>117.3/wk</b><em>Noodles &middot; his opponents outscore the league by 2.2 a week, every week, for 13 years</em></article>
+<article class="rec good"><span class="slug">Softest slate, career</span><div class="faces"><img class="" src="img/avo.jpg?v=0cae7ec2" alt="Avo" title="Avo"></div><b>113.2/wk</b><em>Avo &middot; 1.9 a week below what everyone else has had to beat</em></article>
+<article class="rec bad"><span class="slug">Most robbed, all time</span><div class="faces"><img class="" src="img/rhino.jpg?v=96e44d1d" alt="Rhino" title="Rhino"></div><b>9 wins</b><em>Rhino went 82&ndash;92. He earned 91&ndash;83.</em></article>
+<article class="rec good"><span class="slug">Highest playoff score</span><div class="faces"><img class="" src="img/chirch.jpg?v=4a4720a7" alt="Chirch" title="Chirch"></div><b>204.54</b><em>Chirch &middot; 2014 wk 14</em></article>
+<article class="rec bad"><span class="slug">Worst score in a final week</span><div class="faces"><img class="" src="img/scorzo.jpg?v=383df316" alt="Scorzo" title="Scorzo"></div><b>53.58</b><em>Scorzo &middot; 2025 wk 17 &middot; lost by 75.8</em></article>
+<article class="rec bad"><span class="slug">Biggest January collapse</span><div class="faces"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds" title="Smeds"></div><b>-8.5/wk</b><em>Smeds scores 115.2 in the regular season and 106.7 in the playoffs</em></article>
+<article class="rec gold"><span class="slug">Best season ever</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim" title="Salim"></div><b>12&ndash;1, 149.3/wk</b><em>Salim &middot; 2019 &middot; outscored 84.6% of the league weekly</em></article>
+<article class="rec person gold"><span class="slug">Chirch</span><div class="faces"><img class="" src="img/chirch.jpg?v=4a4720a7" alt="Chirch"></div><b>4 Rings</b><em>More than anyone else. 2013, 2014, 2016, 2018.</em></article>
+<article class="rec person gold"><span class="slug">Salim</span><div class="faces"><img class="" src="img/salim.jpg?v=a7567387" alt="Salim"></div><b>3 Rings</b><em>2019, 2024, 2025.</em></article>
+<article class="rec person gold"><span class="slug">Josh</span><div class="faces"><img class="" src="img/josh.jpg?v=4758b829" alt="Josh"></div><b>Champion, 2023</b><em>One ring. It counts forever.</em></article>
+<article class="rec person bad"><span class="slug">Rhino</span><div class="faces"><img class="" src="img/rhino.jpg?v=96e44d1d" alt="Rhino"></div><b>The Unluckiest Man in the League</b><em>-9.0 wins taken by the schedule. Next worst is -7.5.</em></article>
+<article class="rec person gold"><span class="slug">Avo</span><div class="faces"><img class="" src="img/avo.jpg?v=0cae7ec2" alt="Avo"></div><b>Champion, 2022</b><em>One ring. It counts forever.</em></article>
+<article class="rec person gold"><span class="slug">Kermick</span><div class="faces"><img class="" src="img/kermick.jpg?v=d5f88450" alt="Kermick"></div><b>Champion, 2015</b><em>One ring. It counts forever.</em></article>
+<article class="rec person gold"><span class="slug">Noodles</span><div class="faces"><img class="raw" src="img/noodles.jpg?v=eca3c0a1" alt="Noodles"></div><b>Champion, 2020</b><em>One ring. It counts forever.</em></article>
+<article class="rec person gold"><span class="slug">Rawson</span><div class="faces"><img class="" src="img/rawson.jpg?v=d7de8852" alt="Rawson"></div><b>Champion, 2021</b><em>One ring. It counts forever.</em></article>
+<article class="rec person bad"><span class="slug">Scorzo</span><div class="faces"><img class="" src="img/scorzo.jpg?v=383df316" alt="Scorzo"></div><b>Best Team, No Trophy</b><em>Best scoring in the league. Zero titles in 13 seasons.</em></article>
+<article class="rec person bad"><span class="slug">Smeds</span><div class="faces"><img class="" src="img/smeds.jpg?v=c8898339" alt="Smeds"></div><b>Ice Cold in January</b><em>Scores 115.2 a game in the regular season and 106.7 in the playoffs. Nobody else falls off this hard.</em></article>
+<article class="rec person bad"><span class="slug">Della</span><div class="faces"><img class="" src="img/della.jpg?v=bbb18b68" alt="Della"></div><b>Draft Disaster</b><em>5 of the 18 worst picks in league history belong to him. Nobody else has more than 4.</em></article>
+<article class="rec person good"><span class="slug">Wood</span><div class="faces"><img class="" src="img/wood.jpg?v=4976bce5" alt="Wood"></div><b>January Man</b><em>Scores 113.1 a week normally and 126.5 once the playoffs start. The biggest jump in the league.</em></article></div>
+    <p class="swipe">&larr; Swipe &mdash; 27 records &rarr;</p>
   </section>
 
   <section>

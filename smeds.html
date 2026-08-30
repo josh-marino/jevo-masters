@@ -72,7 +72,7 @@ h2 small{font-weight:600;color:var(--faint);letter-spacing:.1em;float:right}
 .aka{font-size:.74rem;color:var(--faint);margin:.7rem 0 0;max-width:60ch;line-height:1.55}
 
 /* ---------- badges: the clippings ---------- */
-.badges{display:flex;flex-direction:column;gap:.9rem}
+.badges{display:flex;flex-direction:column;gap:2rem}
 .badge{background:var(--surf);border:3px solid var(--ink);padding:1.15rem 1.25rem 1.25rem}
 .badge h3{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;
   font-weight:400;font-size:clamp(1.55rem,4.5vw,2.1rem);line-height:.95;
@@ -80,6 +80,12 @@ h2 small{font-weight:600;color:var(--faint);letter-spacing:.1em;float:right}
 .badge p{margin:0;color:var(--soft);font-size:.9rem;max-width:58ch}
 .badge.lead{box-shadow:7px 7px 0 var(--ink)}
 .badge.lead h3{font-size:clamp(2.2rem,7.5vw,3.4rem)}
+.cat{display:flex;flex-direction:column;gap:.9rem}
+.cat h2{margin:0;border-top-width:4px}
+.cat.gold h2{border-top-color:var(--gold);color:var(--gold)}
+.cat.bad h2{border-top-color:var(--red);color:var(--red)}
+.cat.good h2{border-top-color:var(--blue);color:var(--blue)}
+.cat h2 small{float:right;font-weight:800;color:inherit;opacity:.55}
 .badgerow{display:flex;gap:.9rem;overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x mandatory;padding:0 0 .9rem;-webkit-overflow-scrolling:touch}
 .badgerow::-webkit-scrollbar{height:9px}
@@ -173,7 +179,7 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
 .ihero h1 i{font-style:normal;color:var(--red)}
 .ihero .verdict{max-width:52ch}
 
-.stories{display:flex;gap:1rem;overflow-x:auto;overscroll-behavior-x:contain;
+.stories{display:flex;gap:1rem;align-items:flex-start;overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x mandatory;scroll-padding-left:0;padding:0 0 .95rem;
   -webkit-overflow-scrolling:touch}
 .stories::-webkit-scrollbar{height:9px}
@@ -202,7 +208,7 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
   letter-spacing:.08em;color:var(--faint);margin-top:.35rem;text-transform:uppercase}
 .barnote{font-size:.7rem;color:var(--faint);margin:.6rem 0 0}
 
-.recs .reclist{display:flex;gap:1rem;overflow-x:auto;overscroll-behavior-x:contain;
+.recs .reclist{display:flex;gap:1rem;align-items:stretch;overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x mandatory;padding:0 0 .95rem;-webkit-overflow-scrolling:touch}
 .recs .reclist::-webkit-scrollbar{height:9px}
 .recs .reclist::-webkit-scrollbar-track{background:var(--hair)}
@@ -210,6 +216,12 @@ footer{border-top:4px solid var(--ink);padding-top:1rem;font-size:.68rem;font-we
 .rec{flex:0 0 min(74vw,292px);scroll-snap-align:start;background:var(--surf);
   border:3px solid var(--ink);padding:1rem 1.05rem 1.15rem;display:flex;flex-direction:column;gap:.6rem}
 .rec .slug{background:var(--ink);color:var(--surf);align-self:flex-start;margin:0}
+.rec.bad{background:var(--redbg)}   .rec.bad b{color:var(--red)}   .rec.bad .slug{background:var(--red)}
+.rec.good{background:var(--bluebg)} .rec.good b{color:var(--blue)} .rec.good .slug{background:var(--blue)}
+.rec.gold{background:var(--goldbg)} .rec.gold b{color:var(--gold)} .rec.gold .slug{background:var(--gold)}
+.rec.person b{font-size:clamp(1.5rem,5vw,1.95rem);line-height:1.02}
+.rec.person em{text-transform:none;letter-spacing:0;font-size:.76rem;font-weight:500}
+.rec.person .faces img{width:92px;height:92px}
 .rec b{font-family:"Anton",Haettenschweiler,"Arial Narrow Bold",sans-serif;font-weight:400;
   font-size:clamp(2.6rem,9vw,3.4rem);line-height:.92;font-variant-numeric:tabular-nums;
   letter-spacing:.005em;margin:.1rem 0 0}
@@ -262,10 +274,12 @@ img.raw{filter:none !important}
   text-transform:uppercase;color:var(--faint);margin:.5rem 0 0}
 
 /* roster sort tabs */
-.tabs{display:flex;gap:0;margin:0 0 .55rem;border:3px solid var(--ink);width:fit-content;max-width:100%}
-.tab{font:inherit;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+.tabs{display:flex;gap:0;margin:0 0 .55rem;border:3px solid var(--ink);max-width:100%;
+  overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tab{font:inherit;font-size:.66rem;flex:0 0 auto;white-space:nowrap;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
   background:var(--surf);color:var(--soft);border:0;border-right:3px solid var(--ink);
-  padding:.6em 1.05em;cursor:pointer}
+  padding:.6em .85em;cursor:pointer}
 .tab:last-child{border-right:0}
 .tab.on{background:var(--ink);color:var(--surf)}
 .tab:hover:not(.on){color:var(--ink)}
@@ -300,7 +314,7 @@ img.raw{filter:none !important}
     </div>
   </header>
 
-  <section class="badges"><article class="badge bad lead"><span class="slug">Disgrace</span><h3>Ice Cold in January</h3><p>Scores 115.2 a game in the regular season and 106.7 in the playoffs. Nobody else falls off this hard.</p></article><div class="badgerow"><article class="badge bad"><span class="slug">Disgrace</span><h3>3-7 in January</h3><p>The worst playoff record in the league, from 5 appearances.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>Still Waiting</h3><p>13 seasons, 2 podiums, no championship.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>League Record Low: 12.00</h3><p>The fewest points anyone has ever scored in a week. 2013, week 9.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>Regular Season Merchant</h3><p>Seeds 5.9, finishes 7.5. Builds a magnificent October team.</p></article><article class="badge good"><span class="slug">Glory</span><h3>187.22</h3><p>His highest score ever, 2020 week 16 &amp;mdash; and he beat Rawson with it.</p></article><article class="badge neutral"><span class="slug">Cold fact</span><h3>4 Team Names</h3><p>Thirteen seasons, 4 different identities, one set of results.</p></article></div><p class="swipe">&larr; Swipe &mdash; 6 more &rarr;</p></section>
+  <section class="badges"><section class="cat bad"><h2>Disgrace <small>5</small></h2><article class="badge bad lead"><span class="slug">Disgrace</span><h3>Ice Cold in January</h3><p>Scores 115.2 a game in the regular season and 106.7 in the playoffs. Nobody else falls off this hard.</p></article><div class="badgerow"><article class="badge bad"><span class="slug">Disgrace</span><h3>3-7 in January</h3><p>The worst playoff record in the league, from 5 appearances.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>Still Waiting</h3><p>13 seasons, 2 podiums, no championship.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>League Record Low: 12.00</h3><p>The fewest points anyone has ever scored in a week. 2013, week 9.</p></article><article class="badge bad"><span class="slug">Disgrace</span><h3>Regular Season Merchant</h3><p>Seeds 5.9, finishes 7.5. Builds a magnificent October team.</p></article></div></section><section class="cat good"><h2>Glory <small>1</small></h2><div class="badgerow"><article class="badge good"><span class="slug">Glory</span><h3>187.22</h3><p>His highest score ever, 2020 week 16 &amp;mdash; and he beat Rawson with it.</p></article></div></section><section class="cat neutral"><h2>Cold facts <small>1</small></h2><div class="badgerow"><article class="badge neutral"><span class="slug">Cold fact</span><h3>4 Team Names</h3><p>Thirteen seasons, 4 different identities, one set of results.</p></article></div></section></section>
 
   <section class="faceoff">
     <h2>The Grudge <small>no one has beaten him more often</small></h2>
